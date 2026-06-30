@@ -1,0 +1,82 @@
+table_name,column_name,data_type,is_nullable,column_default
+dashboard_incidents,id,uuid,YES,null
+dashboard_incidents,incident_date,date,YES,null
+dashboard_incidents,created_at,timestamp with time zone,YES,null
+dashboard_incidents,severity,text,YES,null
+dashboard_incidents,status,text,YES,null
+dashboard_incidents,incident_type,text,YES,null
+dashboard_incidents,eta_minutes,integer,YES,null
+device_tokens,id,uuid,NO,gen_random_uuid()
+device_tokens,user_id,uuid,NO,null
+device_tokens,token,text,NO,null
+device_tokens,platform,text,YES,null
+device_tokens,updated_at,timestamp with time zone,NO,now()
+dispatch_queue,id,uuid,NO,gen_random_uuid()
+dispatch_queue,incident_id,uuid,NO,null
+dispatch_queue,required_unit_type,text,NO,null
+dispatch_queue,severity_rank,integer,NO,null
+dispatch_queue,enqueued_at,timestamp with time zone,NO,now()
+incident_dispatches,id,uuid,NO,gen_random_uuid()
+incident_dispatches,incident_id,uuid,YES,null
+incident_dispatches,unit_id,uuid,YES,null
+incident_dispatches,distance_km,double precision,YES,null
+incident_dispatches,eta_minutes,integer,YES,null
+incident_dispatches,dispatched_at,timestamp with time zone,YES,now()
+incident_feedback,id,uuid,NO,gen_random_uuid()
+incident_feedback,incident_id,uuid,NO,null
+incident_feedback,reporter_id,uuid,NO,null
+incident_feedback,rating,integer,NO,null
+incident_feedback,comment,text,YES,null
+incident_feedback,created_at,timestamp with time zone,NO,now()
+incident_reports,id,uuid,NO,gen_random_uuid()
+incident_reports,incident_id,uuid,YES,null
+incident_reports,reporter_id,uuid,YES,null
+incident_reports,incident_type,text,YES,null
+incident_reports,actions_taken,text,YES,null
+incident_reports,outcome,text,YES,null
+incident_reports,created_at,timestamp with time zone,YES,now()
+incidents,id,uuid,NO,gen_random_uuid()
+incidents,reporter_id,uuid,YES,null
+incidents,latitude,double precision,YES,null
+incidents,longitude,double precision,YES,null
+incidents,description,text,YES,null
+incidents,voice_url,text,YES,null
+incidents,severity,text,YES,null
+incidents,incident_type,text,YES,null
+incidents,status,text,YES,'Processing'::text
+incidents,created_at,timestamp with time zone,YES,now()
+incidents,case_id,text,YES,null
+incidents,has_duplicate,boolean,NO,false
+incidents,assigned_at,timestamp with time zone,YES,null
+incidents,resolved_at,timestamp with time zone,YES,null
+incidents,eta_minutes,integer,YES,null
+incidents,distance_km,double precision,YES,null
+incidents,assigned_unit_id,uuid,YES,null
+profiles,id,uuid,NO,null
+profiles,name,text,YES,null
+profiles,email,text,YES,null
+profiles,role,text,YES,null
+profiles,emergency_contact_name,text,YES,null
+profiles,emergency_contact_phone,text,YES,null
+profiles,location_enabled,boolean,YES,null
+stations,id,uuid,NO,gen_random_uuid()
+stations,name,text,NO,null
+stations,address,text,YES,null
+stations,latitude,double precision,NO,null
+stations,longitude,double precision,NO,null
+stations,created_at,timestamp with time zone,YES,now()
+units,id,uuid,NO,gen_random_uuid()
+units,station_id,uuid,YES,null
+units,unit_code,text,NO,null
+units,unit_type,text,NO,null
+units,status,text,NO,'Available'::text
+units,current_incident_id,uuid,YES,null
+units,created_at,timestamp with time zone,YES,now()
+units,auth_user_id,uuid,YES,null
+units,name,text,YES,null
+units,email,text,YES,null
+units,current_latitude,double precision,YES,null
+units,current_longitude,double precision,YES,null
+units,last_location_at,timestamp with time zone,YES,null
+units,is_active,boolean,NO,true
+units,available_since,timestamp with time zone,YES,null

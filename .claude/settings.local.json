@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nslookup *)",
+      "PowerShell(flutter analyze *)",
+      "Bash(python -m py_compile app.py)",
+      "PowerShell($out = flutter analyze lib/main.dart lib/screens/auth/auth_gate.dart 2>&1 | Out-String; if \\($out -match \" error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "PowerShell(flutter pub *)",
+      "PowerShell($out = flutter analyze lib/main.dart lib/services/notification_service.dart 2>&1 | Out-String; if \\($out -match \" error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "PowerShell($out = flutter analyze lib/theme/app_theme.dart lib/main.dart lib/screens/auth/login_screen.dart lib/screens/auth/register_screen.dart 2>&1 | Out-String; if \\($out -match \" error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "PowerShell($out = flutter analyze lib/theme/app_theme.dart lib/theme/app_logo.dart lib/main.dart lib/screens/auth/login_screen.dart lib/screens/auth/register_screen.dart 2>&1 | Out-String; if \\($out -match \" error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "PowerShell($out = flutter analyze lib/theme/aurora_background.dart lib/theme/entrance_fade.dart lib/screens/auth/welcome_screen.dart lib/screens/auth/login_screen.dart lib/screens/auth/auth_gate.dart 2>&1 | Out-String; if \\($out -match \" error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "PowerShell($out = flutter analyze lib/theme/app_theme.dart lib/theme/aurora_background.dart lib/screens/admin/admin_dashboard.dart lib/screens/citizen/citizen_dashboard.dart lib/screens/unit/unit_dashboard.dart 2>&1 | Out-String; if \\($out -match \" error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "PowerShell($out = flutter analyze lib/theme/app_theme.dart lib/screens/admin/admin_dashboard.dart 2>&1 | Out-String; if \\($out -match \": error |\\\\\\) error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "PowerShell($out = flutter analyze lib/screens/citizen/citizen_dashboard.dart 2>&1 | Out-String; if \\($out -match \": error |\\\\\\) error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "PowerShell($out = flutter analyze lib/screens/citizen/citizen_dashboard.dart lib/screens/admin/admin_dashboard.dart 2>&1 | Out-String; if \\($out -match \": error |\\\\\\) error \"\\) { Write-Output \"=== ERRORS ===\"; \\($out -split \"`n\" | Select-String \"error\"\\) } else { Write-Output \"NO ERRORS\" }; \\($out -split \"`n\" | Select-String \"issues found\"\\))",
+      "Bash(find . -maxdepth 2 -iname \"*.pdf\")",
+      "Bash(ls -la *.pdf)",
+      "Bash(python -c \"import pptx; print\\('python-pptx version:', pptx.__version__\\)\")",
+      "Bash(pip install *)",
+      "Bash(python -c \"import pptx; print\\('ok', pptx.__version__\\)\")",
+      "Bash(python *)",
+      "Bash(flutter build *)",
+      "Bash(grep -niC2 \"fake\\\\|rejected\\\\|reject\" emergency_ai/app.py)",
+      "Bash(grep -niC2 \"fake\\\\|rejected\\\\|reject\\\\|Processing\\\\|not.*emergency\\\\|dismiss\" lib/screens/citizen/citizen_dashboard.dart)",
+      "Bash(git init *)",
+      "Bash(git add *)"
+    ]
+  }
+}
