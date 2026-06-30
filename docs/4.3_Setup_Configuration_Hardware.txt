@@ -1,0 +1,38 @@
+4.3 Setup Configuration (Hardware)
+
+The system was developed and tested across two categories of hardware: development machines that hosted the codebase, the AI microservice, and the database layer; and a mobile device used to validate the citizen- and unit-facing features under real-world conditions.
+
+Development & Backend Environment
+
+All development, the Python AI microservice, and the PostgreSQL (Supabase) database logic were run locally on our laptops. This environment handled the application build process (Flutter/Dart), the AI inference workload, and the database-side dispatch engine simultaneously.
+
+Component            | Specification
+---------------------|------------------------------------------------
+Processor (CPU)      | [e.g. Intel Core i7-1165G7 / AMD Ryzen 7]
+Memory (RAM)         | [e.g. 16 GB]
+Storage              | [e.g. 512 GB SSD]
+Operating System     | [e.g. Windows 11 Pro 64-bit]
+Development Tools    | Android Studio, Flutter SDK 3.10+, Python 3.8+
+
+The AI microservice runs two pretrained models at inference time (no model training was required):
+
+- all-mpnet-base-v2 - a sentence-embedding model used to encode each incident description and match it, by semantic similarity, to the correct incident type and the required response units.
+- Whisper (base) - a speech-to-text model used to transcribe voice-based emergency reports into text before classification.
+
+Because both models run on the development laptops alongside the database triggers and the dispatch engine, this hardware provided enough memory and processing capacity to encode the embeddings and process audio without blocking the rest of the system.
+
+Mobile Testing Environment (Presentation Layer)
+
+The mobile application was deployed and tested on a physical device to validate behavior that cannot be reliably verified on a simulator.
+
+Component            | Specification
+---------------------|------------------------------------------------
+Test Device          | [e.g. Pixel 6 / Samsung Galaxy A52 / iPhone 13]
+Operating System     | [e.g. Android 14 / iOS 17]
+Connectivity         | Wi-Fi and mobile data
+
+Testing on real hardware was used specifically to validate:
+
+- Background GPS tracking - confirming the accuracy of the live location used to dispatch the nearest unit.
+- Push notification latency - measuring the delay between a server-initiated Firebase Cloud Messaging event and the alert appearing on the device (e.g. "help is on the way," and new-assignment alerts on the unit side).
+- Audio recorder fidelity - ensuring voice reports were captured at sufficient quality for the Whisper model to transcribe accurately.

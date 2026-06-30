@@ -1,0 +1,30 @@
+name: gp
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  supabase_flutter: ^2.8.1
+  google_maps_flutter: ^2.5.3
+  geolocator: ^11.0.0
+  record: ^6.2.0
+  path_provider: ^2.1.2
+  permission_handler: ^11.3.0
+  http: ^1.2.1
+  firebase_core: ^4.11.0
+  firebase_messaging: ^16.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
